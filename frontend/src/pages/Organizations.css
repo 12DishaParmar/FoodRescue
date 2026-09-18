@@ -1,0 +1,973 @@
+/* =========================================================
+   FOODRESCUE - ORGANIZATIONS PAGE
+   ========================================================= */
+
+.organizations-page {
+    min-height: 100vh;
+    padding: 35px 50px 25px;
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(56, 189, 248, 0.08),
+            transparent 30%
+        ),
+        #07111f;
+    color: #e5eef8;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.organizations-header {
+    max-width: 1250px;
+    margin: 0 auto 28px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 25px;
+}
+
+
+.brand-small {
+    color: #38bdf8;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+
+.organizations-header h1 {
+    margin: 0;
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+
+.organizations-header p {
+    margin: 10px 0 0;
+    max-width: 700px;
+    color: #94a9bd;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   REFRESH BUTTON
+   ========================================================= */
+
+.refresh-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 11px 18px;
+
+    border: 1px solid #263c52;
+    border-radius: 10px;
+
+    background: #101f31;
+    color: #dceaf6;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.refresh-btn:hover:not(:disabled) {
+    background: #152a40;
+    border-color: #38bdf8;
+    transform: translateY(-1px);
+}
+
+
+.refresh-btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   ROTATING REFRESH ICON
+   ========================================================= */
+
+.spin-icon {
+    animation: spin 1s linear infinite;
+}
+
+
+@keyframes spin {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* =========================================================
+   INFORMATION BANNER
+   ========================================================= */
+
+.organization-info-banner {
+    max-width: 1250px;
+    margin: 0 auto 25px;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+
+    padding: 17px 20px;
+
+    border: 1px solid #21415a;
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(14, 116, 144, 0.15),
+            rgba(15, 23, 42, 0.65)
+        );
+}
+
+
+.info-banner-icon {
+    min-width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: rgba(56, 189, 248, 0.12);
+    color: #38bdf8;
+}
+
+
+.organization-info-banner strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #eaf6ff;
+    font-size: 14px;
+}
+
+
+.organization-info-banner p {
+    margin: 0;
+
+    color: #8fa5b9;
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   STATISTICS
+   ========================================================= */
+
+.organization-stats {
+    max-width: 1250px;
+    margin: 0 auto 25px;
+
+    display: grid;
+    grid-template-columns:
+        repeat(5, minmax(0, 1fr));
+
+    gap: 14px;
+}
+
+
+.org-stat-card {
+    padding: 18px;
+
+    border: 1px solid #1d3449;
+    border-radius: 14px;
+
+    background: #0c1928;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.org-stat-card:hover {
+    transform: translateY(-2px);
+    border-color: #2b5875;
+}
+
+
+.stat-number {
+    font-size: 27px;
+    font-weight: 800;
+    color: #38bdf8;
+}
+
+
+.stat-label {
+    margin-top: 4px;
+
+    color: #8398ab;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+
+/* =========================================================
+   SEARCH + FILTER
+   ========================================================= */
+
+.organization-controls {
+    max-width: 1250px;
+    margin: 0 auto 16px;
+
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+
+
+.organization-search {
+    flex: 1;
+
+    min-height: 48px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 0 15px;
+
+    border: 1px solid #233b51;
+    border-radius: 12px;
+
+    background: #0c1928;
+
+    color: #668198;
+
+    box-sizing: border-box;
+}
+
+
+.organization-search:focus-within {
+    border-color: #38bdf8;
+    box-shadow:
+        0 0 0 3px rgba(56, 189, 248, 0.08);
+}
+
+
+.organization-search input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #e7f1fa;
+
+    font-size: 14px;
+}
+
+
+.organization-search input::placeholder {
+    color: #61778b;
+}
+
+
+.filter-group {
+    display: flex;
+    gap: 10px;
+}
+
+
+.filter-group select {
+    min-height: 48px;
+
+    padding: 0 35px 0 13px;
+
+    border: 1px solid #233b51;
+    border-radius: 12px;
+
+    background: #0c1928;
+    color: #dce8f2;
+
+    outline: none;
+
+    font-size: 13px;
+
+    cursor: pointer;
+}
+
+
+.filter-group select:focus {
+    border-color: #38bdf8;
+}
+
+
+/* =========================================================
+   RESULT COUNT
+   ========================================================= */
+
+.organization-result-count {
+    max-width: 1250px;
+    margin: 0 auto 18px;
+
+    color: #70879b;
+    font-size: 13px;
+}
+
+
+.organization-result-count strong {
+    color: #b9d4e8;
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.organization-error {
+    max-width: 1250px;
+    margin: 20px auto;
+
+    padding: 14px 16px;
+
+    border: 1px solid #713f46;
+    border-radius: 10px;
+
+    background: rgba(127, 29, 29, 0.18);
+    color: #fca5a5;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   LOADING / EMPTY
+   ========================================================= */
+
+.organization-message {
+    min-height: 220px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    color: #7890a4;
+
+    font-size: 14px;
+}
+
+
+.organization-message small {
+    color: #50677b;
+}
+
+
+/* =========================================================
+   ORGANIZATION GRID
+   ========================================================= */
+
+.organization-grid {
+    max-width: 1250px;
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+
+/* =========================================================
+   ORGANIZATION CARD
+   ========================================================= */
+
+.organization-card {
+    min-width: 0;
+
+    padding: 20px;
+
+    border: 1px solid #1d3449;
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0d1b2a,
+            #091522
+        );
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.18);
+
+    transition:
+        transform 0.22s ease,
+        border-color 0.22s ease,
+        box-shadow 0.22s ease;
+
+    overflow: hidden;
+}
+
+
+.organization-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #2d617f;
+
+    box-shadow:
+        0 16px 38px rgba(0, 0, 0, 0.28);
+}
+
+
+/* =========================================================
+   CARD TOP
+   ========================================================= */
+
+.organization-card-top {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    margin-bottom: 17px;
+}
+
+
+.organization-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+}
+
+
+.organization-icon.ngo {
+    background: rgba(56, 189, 248, 0.12);
+    color: #38bdf8;
+}
+
+
+.organization-icon.hotel {
+    background: rgba(168, 85, 247, 0.12);
+    color: #c084fc;
+}
+
+
+.organization-icon.restaurant {
+    background: rgba(251, 191, 36, 0.12);
+    color: #fbbf24;
+}
+
+
+.organization-type {
+    padding: 5px 9px;
+
+    border-radius: 7px;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+}
+
+
+.organization-type.ngo {
+    background: rgba(56, 189, 248, 0.1);
+    color: #67d4ff;
+}
+
+
+.organization-type.hotel {
+    background: rgba(168, 85, 247, 0.1);
+    color: #d2a1ff;
+}
+
+
+.organization-type.restaurant {
+    background: rgba(251, 191, 36, 0.1);
+    color: #ffd166;
+}
+
+
+/* =========================================================
+   PUBLIC LISTING BADGE
+   ========================================================= */
+
+.listing-badge {
+    margin-left: auto;
+
+    max-width: 125px;
+
+    padding: 5px 8px;
+
+    border: 1px solid #244359;
+    border-radius: 7px;
+
+    background: rgba(56, 189, 248, 0.05);
+
+    color: #7594aa;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+
+/* =========================================================
+   ORGANIZATION NAME
+   ========================================================= */
+
+.organization-card h2 {
+    margin: 0 0 11px;
+
+    color: #edf7ff;
+
+    font-size: 19px;
+    font-weight: 750;
+
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   LOCATION
+   ========================================================= */
+
+.organization-location {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    margin-bottom: 9px;
+
+    color: #6dc9ee;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+.organization-address {
+    margin: 0 0 15px;
+
+    color: #788fa3;
+
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   FOCUS AREA
+   ========================================================= */
+
+.organization-focus {
+    display: flex;
+    gap: 10px;
+
+    margin: 15px 0;
+
+    padding: 12px;
+
+    border: 1px solid #1c3548;
+    border-radius: 10px;
+
+    background: rgba(15, 34, 51, 0.65);
+
+    color: #4fc3f7;
+}
+
+
+.organization-focus > div {
+    min-width: 0;
+}
+
+
+.organization-focus span {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #647d91;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+
+.organization-focus strong {
+    display: block;
+
+    color: #b9cedd;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    line-height: 1.45;
+}
+
+
+/* =========================================================
+   CONTACT SECTION
+   ========================================================= */
+
+.organization-contact-section {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    margin: 15px 0;
+}
+
+
+.organization-contact-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    width: fit-content;
+    max-width: 100%;
+
+    color: #8fa9bd;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    transition:
+        color 0.2s ease;
+}
+
+
+.organization-contact-link:hover {
+    color: #4fc3f7;
+}
+
+
+.organization-contact-link span {
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   SOURCE
+   ========================================================= */
+
+.organization-source {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-top: 16px;
+    padding-top: 15px;
+
+    border-top: 1px solid #1a3042;
+}
+
+
+.source-icon {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 8px;
+
+    background: rgba(56, 189, 248, 0.09);
+    color: #52c7f5;
+}
+
+
+.source-content {
+    min-width: 0;
+    flex: 1;
+}
+
+
+.source-content span {
+    display: block;
+
+    margin-bottom: 2px;
+
+    color: #596f82;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+}
+
+
+.source-content strong {
+    display: block;
+
+    overflow: hidden;
+
+    color: #a9c2d4;
+
+    font-size: 11px;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.source-link {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 8px;
+
+    background: #11283a;
+    color: #52c7f5;
+
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.source-link:hover {
+    background: #18394f;
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   VERIFICATION / LISTING STATUS
+   ========================================================= */
+
+.verified-badge {
+    margin-top: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 8px 10px;
+
+    border-radius: 8px;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+
+.verified-badge.verified {
+    border: 1px solid #1d614a;
+    background: rgba(34, 197, 94, 0.09);
+    color: #65d391;
+}
+
+
+.verified-badge.public-listing {
+    border: 1px solid #27445a;
+    background: rgba(56, 189, 248, 0.06);
+    color: #7fa9c2;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.organizations-footer {
+    max-width: 1250px;
+
+    margin: 40px auto 0;
+    padding-top: 20px;
+
+    border-top: 1px solid #172c3d;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+
+    color: #536a7d;
+
+    font-size: 12px;
+}
+
+
+.organizations-footer strong {
+    color: #7893a7;
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+    .organizations-page {
+        padding: 28px 28px 22px;
+    }
+
+
+    .organization-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    .organization-stats {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .organizations-page {
+        padding: 22px 16px;
+    }
+
+
+    .organizations-header {
+        flex-direction: column;
+    }
+
+
+    .organizations-header h1 {
+        font-size: 28px;
+    }
+
+
+    .refresh-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+
+    .organization-info-banner {
+        padding: 14px;
+    }
+
+
+    .organization-stats {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    .organization-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+
+    .filter-group {
+        width: 100%;
+    }
+
+
+    .filter-group select {
+        flex: 1;
+    }
+
+
+    .organization-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .organizations-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .organization-stats {
+        grid-template-columns: 1fr;
+    }
+
+
+    .organization-card {
+        padding: 16px;
+    }
+
+
+    .listing-badge {
+        display: none;
+    }
+
+}

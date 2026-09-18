@@ -1,0 +1,966 @@
+/* =========================================================
+   FOODRESCUE - VOLUNTEER DASHBOARD
+   ========================================================= */
+
+.volunteer-page {
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            circle at 85% 5%,
+            rgba(50, 150, 210, 0.08),
+            transparent 28%
+        ),
+        #07111f;
+    color: #e8f0f8;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.volunteer-header {
+    height: 76px;
+    padding: 0 42px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(8, 22, 37, 0.96);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+    position: sticky;
+    top: 0;
+    z-index: 20;
+
+    backdrop-filter: blur(12px);
+}
+
+.volunteer-brand {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.volunteer-logo {
+    width: 44px;
+    height: 44px;
+    border-radius: 13px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(
+        135deg,
+        #123b58,
+        #0e2b42
+    );
+
+    color: #66d9ff;
+
+    box-shadow:
+        0 0 0 1px rgba(102, 217, 255, 0.08),
+        0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.volunteer-brand h1 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 750;
+    letter-spacing: -0.6px;
+}
+
+.volunteer-brand h1 span {
+    color: #66d9ff;
+}
+
+.volunteer-brand p {
+    margin: 3px 0 0;
+    color: #7e94a8;
+    font-size: 11px;
+    letter-spacing: 0.2px;
+}
+
+.volunteer-header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.volunteer-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-right: 4px;
+}
+
+.volunteer-avatar {
+    width: 39px;
+    height: 39px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #12384f;
+    color: #72dcff;
+
+    font-size: 14px;
+    font-weight: 750;
+
+    border: 1px solid rgba(102, 217, 255, 0.12);
+}
+
+.volunteer-user strong {
+    display: block;
+    color: #eaf3f8;
+    font-size: 13px;
+    font-weight: 650;
+}
+
+.volunteer-user span {
+    display: block;
+    margin-top: 3px;
+    color: #71879a;
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.logout-button,
+.refresh-button {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #0d1c2d;
+    color: #d8e6f0;
+
+    padding: 9px 14px;
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.logout-button:hover,
+.refresh-button:hover {
+    background: #14283b;
+    border-color: rgba(102, 217, 255, 0.15);
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.volunteer-content {
+    width: min(1250px, calc(100% - 60px));
+    margin: 0 auto;
+    padding: 42px 0 70px;
+}
+
+
+/* =========================================================
+   WELCOME / HERO
+   ========================================================= */
+
+.welcome-section {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 25px;
+
+    margin-bottom: 28px;
+
+    padding: 28px 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(17, 48, 70, 0.95),
+            rgba(10, 28, 44, 0.95)
+        );
+
+    border: 1px solid rgba(102, 217, 255, 0.08);
+    border-radius: 18px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.16);
+}
+
+.welcome-label {
+    margin: 0 0 8px;
+
+    color: #66d9ff;
+
+    font-size: 10px;
+    font-weight: 750;
+
+    letter-spacing: 1.8px;
+}
+
+.welcome-section h2 {
+    margin: 0;
+
+    color: #f0f7fb;
+
+    font-size: 31px;
+    line-height: 1.2;
+
+    letter-spacing: -1px;
+}
+
+.welcome-section p:not(.welcome-label) {
+    max-width: 690px;
+
+    margin: 9px 0 0;
+
+    color: #8da2b4;
+
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.refresh-button {
+    flex-shrink: 0;
+    padding: 10px 16px;
+}
+
+.refresh-button svg {
+    transition: transform 0.4s ease;
+}
+
+.refresh-button:hover svg {
+    transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   STAT CARDS
+   ========================================================= */
+
+.volunteer-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 17px;
+
+    margin-bottom: 42px;
+}
+
+.stat-card {
+    position: relative;
+
+    background: #0b1a2a;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 15px;
+
+    padding: 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.stat-card::after {
+    content: "";
+
+    position: absolute;
+    width: 80px;
+    height: 80px;
+
+    right: -30px;
+    bottom: -35px;
+
+    border-radius: 50%;
+
+    background: rgba(102, 217, 255, 0.04);
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(102, 217, 255, 0.12);
+    background: #0d1d2e;
+}
+
+.stat-icon {
+    width: 45px;
+    height: 45px;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #12364e;
+    color: #66d9ff;
+}
+
+.stat-card span {
+    display: block;
+
+    color: #7e93a6;
+
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.stat-card strong {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #edf5f9;
+
+    font-size: 25px;
+    line-height: 1;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   MESSAGES
+   ========================================================= */
+
+.volunteer-success,
+.volunteer-message {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    border-radius: 11px;
+
+    padding: 12px 15px;
+
+    margin-bottom: 18px;
+
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.volunteer-success {
+    background: rgba(100, 220, 150, 0.08);
+    color: #7be39c;
+
+    border: 1px solid rgba(100, 220, 150, 0.15);
+}
+
+.volunteer-message {
+    background: rgba(255, 100, 100, 0.08);
+    color: #ff9b9b;
+
+    border: 1px solid rgba(255, 100, 100, 0.14);
+}
+
+
+/* =========================================================
+   PICKUP SECTION
+   ========================================================= */
+
+.pickup-section {
+    margin-top: 4px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+}
+
+.section-heading h3 {
+    margin: 0;
+
+    color: #edf5f9;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    letter-spacing: -0.3px;
+}
+
+.section-heading p {
+    margin: 5px 0 0;
+
+    color: #788da0;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   PICKUP GRID
+   ========================================================= */
+
+.pickup-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+/* =========================================================
+   PICKUP CARD
+   ========================================================= */
+
+.pickup-card {
+    position: relative;
+
+    background: #0b1a2a;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 17px;
+
+    padding: 22px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.pickup-card:hover {
+    transform: translateY(-2px);
+
+    border-color: rgba(102, 217, 255, 0.12);
+
+    box-shadow:
+        0 16px 35px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================================
+   CARD TOP
+   ========================================================= */
+
+.pickup-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 16px;
+}
+
+.food-icon {
+    width: 43px;
+    height: 43px;
+
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #12364e;
+    color: #66d9ff;
+}
+
+
+/* =========================================================
+   STATUS BADGES
+   ========================================================= */
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    font-size: 10px;
+    font-weight: 650;
+
+    white-space: nowrap;
+}
+
+.status-ready {
+    background: rgba(255, 190, 80, 0.11);
+    color: #ffc35c;
+}
+
+.status-accepted {
+    background: rgba(100, 190, 255, 0.11);
+    color: #72d2ff;
+}
+
+.status-picked {
+    background: rgba(140, 210, 180, 0.11);
+    color: #8ee0c0;
+}
+
+.status-delivered {
+    background: rgba(100, 220, 150, 0.11);
+    color: #7be39c;
+}
+
+
+/* =========================================================
+   FOOD INFORMATION
+   ========================================================= */
+
+.pickup-card h3 {
+    margin: 0;
+
+    color: #edf5f9;
+
+    font-size: 19px;
+    font-weight: 700;
+
+    letter-spacing: -0.3px;
+}
+
+.pickup-description {
+    min-height: 38px;
+
+    margin: 7px 0 20px;
+
+    color: #8297aa;
+
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   DETAILS
+   ========================================================= */
+
+.pickup-details {
+    display: flex;
+    flex-direction: column;
+
+    gap: 13px;
+
+    padding: 15px;
+
+    background: #091624;
+
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+}
+
+.pickup-details > div {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+
+    color: #66d9ff;
+}
+
+.pickup-details > div > svg {
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.pickup-details span {
+    display: block;
+
+    color: #71879a;
+
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.pickup-details strong {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #dce8f0;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    line-height: 1.45;
+}
+
+
+/* =========================================================
+   DELIVERY BOX
+   ========================================================= */
+
+.delivery-box {
+    margin-top: 15px;
+
+    padding: 14px 15px;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(18, 55, 77, 0.65),
+            rgba(9, 27, 43, 0.8)
+        );
+
+    border: 1px solid rgba(102, 217, 255, 0.07);
+}
+
+.delivery-box span {
+    display: block;
+
+    color: #71879a;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+}
+
+.delivery-box strong {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #dce8f0;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   ACTION BUTTONS
+   ========================================================= */
+
+.pickup-actions {
+    margin-top: 17px;
+}
+
+.accept-button,
+.pickup-button,
+.deliver-button {
+    width: 100%;
+
+    border: none;
+    border-radius: 10px;
+
+    padding: 12px 14px;
+
+    color: #06111d;
+
+    font-size: 12px;
+    font-weight: 750;
+
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.accept-button {
+    background: #66d9ff;
+}
+
+.pickup-button {
+    background: #79d8bd;
+}
+
+.deliver-button {
+    background: #7be39c;
+}
+
+.accept-button:hover,
+.pickup-button:hover,
+.deliver-button:hover {
+    filter: brightness(1.07);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+}
+
+
+/* =========================================================
+   COMPLETED
+   ========================================================= */
+
+.completed-message {
+    width: 100%;
+    box-sizing: border-box;
+
+    border-radius: 10px;
+
+    padding: 12px;
+
+    background: rgba(100, 220, 150, 0.08);
+
+    color: #7be39c;
+
+    border: 1px solid rgba(100, 220, 150, 0.12);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+
+    font-size: 12px;
+    font-weight: 650;
+}
+
+
+/* =========================================================
+   EMPTY / LOADING STATE
+   ========================================================= */
+
+.empty-state {
+    min-height: 300px;
+
+    border: 1px dashed rgba(255, 255, 255, 0.09);
+    border-radius: 17px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 35px;
+
+    background: rgba(10, 24, 39, 0.35);
+}
+
+.empty-icon {
+    width: 58px;
+    height: 58px;
+
+    border-radius: 50%;
+
+    background: #10283b;
+    color: #66d9ff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 14px;
+}
+
+.empty-state h3 {
+    margin: 0;
+
+    color: #dfeaf0;
+
+    font-size: 16px;
+}
+
+.empty-state p {
+    max-width: 430px;
+
+    margin: 8px 0 0;
+
+    color: #788da0;
+
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.loading-icon {
+    color: #66d9ff;
+
+    animation: volunteer-spin 1.2s linear infinite;
+
+    margin-bottom: 14px;
+}
+
+@keyframes volunteer-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   DISABLED
+   ========================================================= */
+
+.accept-button:disabled,
+.pickup-button:disabled,
+.deliver-button:disabled,
+.refresh-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .volunteer-header {
+        padding: 0 22px;
+    }
+
+    .volunteer-content {
+        width: calc(100% - 36px);
+        padding-top: 30px;
+    }
+
+    .pickup-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .volunteer-header {
+        height: auto;
+        min-height: 70px;
+        padding: 13px 16px;
+    }
+
+    .volunteer-user {
+        display: none;
+    }
+
+    .volunteer-header-right {
+        gap: 8px;
+    }
+
+    .logout-button {
+        padding: 9px 11px;
+    }
+
+    .logout-button {
+        font-size: 0;
+    }
+
+    .logout-button svg {
+        margin: 0;
+    }
+
+    .volunteer-content {
+        width: calc(100% - 28px);
+        padding: 24px 0 50px;
+    }
+
+    .welcome-section {
+        align-items: flex-start;
+        flex-direction: column;
+
+        padding: 23px 20px;
+
+        margin-bottom: 20px;
+    }
+
+    .welcome-section h2 {
+        font-size: 25px;
+    }
+
+    .welcome-section p:not(.welcome-label) {
+        font-size: 12px;
+    }
+
+    .refresh-button {
+        width: 100%;
+    }
+
+    .volunteer-stats {
+        grid-template-columns: 1fr;
+        gap: 11px;
+
+        margin-bottom: 32px;
+    }
+
+    .stat-card {
+        padding: 16px;
+    }
+
+    .section-heading h3 {
+        font-size: 18px;
+    }
+
+    .pickup-card {
+        padding: 18px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .volunteer-brand h1 {
+        font-size: 19px;
+    }
+
+    .volunteer-logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .welcome-section h2 {
+        font-size: 23px;
+    }
+
+    .pickup-card h3 {
+        font-size: 17px;
+    }
+
+    .status-badge {
+        font-size: 9px;
+        padding: 5px 8px;
+    }
+
+}
+/* TEST */
+.volunteer-page {
+    outline: 8px solid red !important;
+}
